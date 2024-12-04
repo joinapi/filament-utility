@@ -5,10 +5,25 @@ namespace Joinapi\FilamentUtility\Form;
 use Closure;
 use Filament\Forms\Components\TextInput;
 use Filament\Support\RawJs;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Document extends TextInput
 {
     public bool $validation = true;
+
+    public function unique(Closure|string|null $table = null, Closure|string|null $column = null, Model|Closure|null $ignorable = null, bool $ignoreRecord = false, ?Closure $modifyRuleUsing = null): static
+    {
+        $this->validation = true;
+        $this->registerMutation();
+        parent::unique($table, $column, $ignorable, $ignoreRecord, $modifyRuleUsing);
+
+    }
+
+    private function registerMutation(): void {
+        $this->mutateStateForValidationUsing(fn (string $state): string => Str::of($state)
+            ->replaceMatches('/[^0-9]/', ''));
+    }
 
     public function dynamic(bool $condition = true): static
     {
@@ -29,6 +44,9 @@ class Document extends TextInput
     {
         $this->dynamic(false)
             ->mask($format);
+
+        $this->mutateStateForValidationUsing(fn (string $state): string => Str::of($state)
+            ->replaceMatches('/[^0-9]/', ''));
 
         if (self::getValidation()) {
             $this->rule('cpf');
