@@ -18,6 +18,8 @@ class Document extends TextInput
         $this->registerMutation();
         parent::unique($table, $column, $ignorable, $ignoreRecord, $modifyRuleUsing);
 
+        return $this;
+
     }
 
     private function registerMutation(): void {
