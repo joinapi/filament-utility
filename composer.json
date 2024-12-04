@@ -1,0 +1,61 @@
+{
+  "name": "joinapi/filament-utility",
+  "description": "Filament package utility",
+  "keywords": [
+    "JOIN API",
+    "laravel",
+    "filament-utility"
+  ],
+  "homepage": "https://github.com/join-api/filament-utility",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "JOIN API",
+      "email": "devops@joinapi.io",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.1 || ^8.2 || ^8.3 || ^8.4",
+    "archtechx/money": "^0.5.1",
+    "filament/filament": "^3.0",
+    "illuminate/contracts": "^10.0 || ^11.0",
+    "laravellegends/pt-br-validator": "^10.0 || ^11.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.14",
+    "nunomaduro/collision": "^8.1.1||^7.10.0",
+    "pestphp/pest": "^3.0",
+    "pestphp/pest-plugin-arch": "^3.0",
+    "pestphp/pest-plugin-laravel": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Joinapi\\FilamentUtility\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Joinapi\\FilamentUtility\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Joinapi\\FilamentUtility\\FilamentUtilityServiceProvider"
+      ],
+      "aliases": {
+        "FilamentUtility": "Joinapi\\FilamentUtility\\Facades\\FilamentUtility"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
