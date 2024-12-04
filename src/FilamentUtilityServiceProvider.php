@@ -4,18 +4,19 @@ namespace Joinapi\FilamentUtility;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Support\ServiceProvider;
-use Filament\FilamentServiceProvider;
-class FilamentUtilityServiceProvider extends FilamentServiceProvider
+
+class FilamentUtilityServiceProvider extends ServiceProvider
 {
 
-    public function packageBooted(): void
+    public function register(): void
     {
-        parent::packageBooted();
-
         FilamentAsset::register([
             Js::make('money-script', __DIR__.'/../resources/js/money.js'),
         ]);
     }
 
+    public function boot()
+    {
 
+    }
 }
