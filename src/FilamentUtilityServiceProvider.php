@@ -14,6 +14,8 @@ class FilamentUtilityServiceProvider extends ServiceProvider
             Js::make('money-script', __DIR__.'/../resources/js/money.js'),
         ]);
 
+
+        /*
         $rules = [
             'celular'                        => \Joinapi\FilamentUtility\Rules\Celular::class,
             'celular_com_ddd'                => \Joinapi\FilamentUtility\Rules\CelularComDdd::class,
@@ -35,6 +37,7 @@ class FilamentUtilityServiceProvider extends ServiceProvider
             'cpf_ou_cnpj'                    => \Joinapi\FilamentUtility\Rules\CpfOuCnpj::class,
             'formato_cpf_ou_cnpj'            => \Joinapi\FilamentUtility\Rules\FormatoCpfOuCnpj::class,
             'uf'                             => \Joinapi\FilamentUtility\Rules\Uf::class,
+
         ];
 
         foreach ($rules as $name => $class) {
@@ -44,8 +47,8 @@ class FilamentUtilityServiceProvider extends ServiceProvider
                 return $rule->passes($attribute, $value);
             };
 
-            $this->app['validator']->extend($name, $extension, $rule->message());
-        }
+            $this->app['filament-utility']->extend($name, $extension, $rule->message());
+        }*/
     }
 
     public function boot()
