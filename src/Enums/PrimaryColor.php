@@ -2,7 +2,7 @@
 
 namespace Joinapi\FilamentUtility\Enums;
 
-use App\Enums\Concerns\Utilities;
+use Joinapi\FilamentUtility\Support\Enums\Concerns\Utilities;
 use Filament\Support\Colors\Color;
 use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasLabel;

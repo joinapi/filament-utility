@@ -2,8 +2,9 @@
 
 namespace Joinapi\FilamentUtility\Enums;
 
-use App\Enums\Concerns\Utilities;
+
 use Filament\Support\Contracts\HasLabel;
+use Joinapi\FilamentUtility\Enums\Concerns\Utilities;
 
 enum RecordsPerPage: int implements HasLabel
 {
