@@ -21,14 +21,16 @@ class Cep extends TextInput
 
             $request = Http::get(config('filament-utility.viacep_url').$state.'/json/')->json();
 
-            foreach ($setFields as $key => $value) {
-                $set($key, $request[$value] ?? null);
-            }
 
             if (blank($request) || Arr::has($request, 'erro')) {
                 throw ValidationException::withMessages([
                     $component->getKey() => $errorMessage,
                 ]);
+            }
+
+            foreach ($setFields as $key => $value) {
+                $nv = strtoupper($request[$value] ) ?? null;
+                $set($key,$nv);
             }
         };
 
