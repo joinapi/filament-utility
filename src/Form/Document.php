@@ -52,6 +52,9 @@ class Document extends TextInput
 
         if (self::getValidation()) {
             $this->rule('cpf');
+            $this->validationAttribute('CPF');
+            $this->validationMessages(['cpf' => 'O CPF informado não é valido.']);
+            $this->validationMessages(['required' => 'O CPF é obrigatório.']);
         }
 
         return $this;
@@ -64,6 +67,9 @@ class Document extends TextInput
 
         if (self::getValidation()) {
             $this->rule('cnpj');
+            $this->validationAttribute('CNPJ');
+            $this->validationMessages(['cnpj' => 'O CPF informado não é valido.']);
+            $this->validationMessages(['required' => 'O CNPJ é obrigatório.']);
         }
 
         return $this;

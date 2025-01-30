@@ -15,7 +15,7 @@ class FilamentUtilityServiceProvider extends ServiceProvider
         ]);
 
 
-        /*
+
         $rules = [
             'celular'                        => \Joinapi\FilamentUtility\Rules\Celular::class,
             'celular_com_ddd'                => \Joinapi\FilamentUtility\Rules\CelularComDdd::class,
@@ -48,7 +48,7 @@ class FilamentUtilityServiceProvider extends ServiceProvider
             };
 
             $this->app['filament-utility']->extend($name, $extension, $rule->message());
-        }*/
+        }
     }
 
     public function boot()

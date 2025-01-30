@@ -13,7 +13,7 @@ enum RecordsPerPage: int implements HasLabel
     case Ten = 10;
     case TwentyFive = 25;
     case Fifty = 50;
-    case OneHundred = 100;
+   // case OneHundred = 100;
 
     public const DEFAULT = self::Ten->value;
 
