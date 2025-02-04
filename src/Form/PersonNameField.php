@@ -11,7 +11,7 @@ class PersonNameField extends TextInput
         parent::setUp();
     }
 
-    protected function applyRule( string $rule = '/[a-z\040\.\-]+$/i'): static
+    public function applyRule( string $rule = '/[a-z\040\.\-]+$/i'): static
     {
         $this->rule( 'regex:'.$rule );
         return $this;
