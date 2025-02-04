@@ -24,10 +24,18 @@ class PhoneNumber extends TextInput
         return $this;
     }
 
+    public function minDigits( int $digits ): static
+    {
+        $this->rules(['regex:/^([0-9\s\-\+\(\)]*)$/', 'min:'.$digits]);
+        return $this;
+
+    }
+
     public function format(string|Closure $format = '(99)99999-9999'): static
     {
         $this->dynamic(false)
             ->minLength(0)
+            ->rules(['regex:/^([0-9\s\-\+\(\)]*)$/', 'min:14'])
             ->mask($format);
 
         return $this;
