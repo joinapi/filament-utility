@@ -30,7 +30,7 @@ class Document extends TextInput
     public function dynamic(bool $condition = true): static
     {
         if (self::getValidation()) {
-            $this->rule('cpf_ou_cnpj');
+           // $this->rule('cpf_ou_cnpj');
         }
 
         if ($condition) {
@@ -68,7 +68,7 @@ class Document extends TextInput
         if (self::getValidation()) {
             $this->rule('cnpj');
             $this->validationAttribute('CNPJ');
-            $this->validationMessages(['cnpj' => 'O CPF informado não é valido.']);
+            $this->validationMessages(['cnpj' => 'O CNPJ informado não é valido.']);
             $this->validationMessages(['required' => 'O CNPJ é obrigatório.']);
         }
 

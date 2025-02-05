@@ -6,7 +6,6 @@ use ArchTech\Money\Currency;
 use Closure;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Support\Str;
-use Joinapi\FilamentUtility\Currencies\BRL;
 
 class Money extends TextInput
 {
