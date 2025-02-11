@@ -10,10 +10,6 @@ class FilamentUtilityServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        FilamentAsset::register([
-            Js::make('money-script', __DIR__.'/../resources/js/money.js'),
-        ]);
-
 
         /*
         $rules = [
