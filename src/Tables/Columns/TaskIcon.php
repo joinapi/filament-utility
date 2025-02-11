@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tables\Columns;
+namespace Joinapi\FilamentUtility\Tables\Columns;
 
 use Filament\Tables\Columns\Column;
 use Filament\Tables\Columns\IconColumn;

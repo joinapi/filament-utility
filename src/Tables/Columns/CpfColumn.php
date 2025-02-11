@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tables\Columns;
+namespace Joinapi\FilamentUtility\Tables\Columns;
 
 use Filament\Tables\Columns\TextColumn;
 
@@ -11,10 +11,10 @@ class CpfColumn extends TextColumn
         return parent::make($name)
             ->label('CPF')
             ->alignCenter()
-            ->formatStateUsing(fn (?string $state): ?string => 
+            ->formatStateUsing(fn (?string $state): ?string =>
                 $state ? preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "$1.$2.$3-$4", $state) : null)
             ->copyable()
-            ->tooltip(fn (?string $state): ?string => $state ? 'Clique para copiar o CPF' : null)            
+            ->tooltip(fn (?string $state): ?string => $state ? 'Clique para copiar o CPF' : null)
             ->sortable()
             ->searchable();
     }
