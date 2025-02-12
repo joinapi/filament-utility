@@ -23,7 +23,7 @@ class Document extends TextInput
     }
 
     private function registerMutation(): void {
-        $this->mutateStateForValidationUsing(fn (string $state): string => Str::of($state)
+        $this->mutateStateForValidationUsing(fn (string|null $state): string|null => empty($state)? null : Str::of($state)
             ->replaceMatches('/[^0-9]/', ''));
     }
 
@@ -47,7 +47,7 @@ class Document extends TextInput
         $this->dynamic(false)
             ->mask($format);
 
-        $this->mutateStateForValidationUsing(fn (string $state): string => Str::of($state)
+        $this->mutateStateForValidationUsing(fn (string|null $state): string|null => empty($state)? null : Str::of($state)
             ->replaceMatches('/[^0-9]/', ''));
 
         if (self::getValidation()) {
