@@ -28,11 +28,11 @@ class Strings
         return $maskared;
     }
 
-    public static function onlyNumbers($value)
+    public static function onlyNumbers($value): string
     {
         if( empty($value)){
             return '';
         }
-        return Str::of($value)->replaceMatches('/[^0-9]/', '');
+        return mb_trim(Str::of($value)->replaceMatches('/[^0-9]/', ''));
     }
 }
