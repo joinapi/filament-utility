@@ -71,12 +71,18 @@ class Cep extends TextInput
                     $newState = Strings::onlyNumbers($state);
                     $oldState = Strings::onlyNumbers($old);
                     Log::debug('Evento de pesquisa ' . $newState . ' ' . $oldState);
+
+                    if( empty($newState) ) {
+                        foreach ($setFields as $key => $value) {
+                            $set($key, null);
+                        }
+                    }
+
                     if ($newState !== $oldState) {
                         if (! empty($newState) && mb_strlen($newState) == 8) {
                             $viaCepRequest($newState, $livewire, $set, $component, $errorMessage, $setFields);
                         } else {
                             $set(self::FIELD_VALIDATED_CEP, Cep::FIELD_VALIDATED_CEP_UNKNOWN);
-                            $livewire->dispatch('cep-validated', false);
                         }
                     }
                 }
